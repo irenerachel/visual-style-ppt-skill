@@ -1,11 +1,29 @@
 # visual-style-ppt
 
+Style-driven Codex Skill for turning documents, articles, and visual references into image-first presentation decks.
+
 <details open>
 <summary>中文</summary>
 
 一个用于「风格驱动 PPT」的 Codex Skill。
 
 它把视觉风格当成可复用资产：先提炼或选择一个视觉风格，再基于文档、文章、提纲或主题生成图片版幻灯片提示词，并在需要时把逐页图片组装成 image-only PPTX。
+
+## 仓库简介
+
+`visual-style-ppt` 适合把内容策划、视觉风格提炼、Image2 生图提示词和图片版 PPT 打包流程串成一套稳定 SOP。它不追求可编辑 PPT 排版，而是把每页幻灯片视为一张高完成度视觉图片，再用 PPTX 作为最终交付容器。
+
+推荐 GitHub About 简介：
+
+```text
+Style-driven Codex Skill for creating image-first PPT decks from documents, articles, and visual references.
+```
+
+推荐 Topics：
+
+```text
+codex-skill, ppt, presentation, image2, visual-style, prompt-engineering, slide-deck, markdown-to-ppt
+```
 
 ## 适合做什么
 
@@ -60,6 +78,13 @@ cd ~/.codex/skills/visual-style-ppt
 git pull
 ```
 
+## 使用前提
+
+- 已安装并可使用 Codex Skills。
+- 需要生成图片时，当前环境应具备可调用的 Image2 或等价图像生成能力。
+- 需要组装 PPTX 时，环境应具备 PPTX 创建能力；本 Skill 默认生成 image-only PPTX。
+- 如果输入是 PDF、Word、Markdown 或网页内容，先确保 Codex 能读取对应文件或链接。
+
 ## 使用示例
 
 ```text
@@ -82,6 +107,13 @@ git pull
 用保存的 terminal-tech-magazine 风格，先给我 outline 和 prompts，我确认后再生成图片
 ```
 
+## 什么时候不适合用
+
+- 需要高度可编辑的 PPT 源文件，例如每个文本框、图表和形状都要可单独修改。
+- 需要严格品牌 Logo 复现，并要求模型在每页图片中稳定绘制相同 Logo。
+- 需要大量表格、长段落、报告正文堆叠在单页里。
+- 需要自动加入今天日期、导出时间或时间戳，但来源没有明确要求。
+
 ## 标准工作流
 
 1. 判断任务类型：提炼风格、调用风格、文档转 PPT、图片版 PPT 修订，或风格库管理。
@@ -101,9 +133,29 @@ git pull
 
 当前内置风格：
 
-- `terminal-tech-magazine.md`：终端科技杂志风格，适合 AI、开发者工具、技术产品和深色视觉报告。
-- `impact-grid-editorial.md`：冲击力网格编辑风格，适合观点型内容、趋势判断和强标题页面。
-- `french-editorial-commerce.md`：法式编辑商业风格，适合品牌、消费、生活方式和审美型商业内容。
+| 风格文件 | 适合内容 | 视觉气质 |
+| --- | --- | --- |
+| `terminal-tech-magazine.md` | AI、开发者工具、技术产品、深色视觉报告 | 终端科技杂志风格 |
+| `impact-grid-editorial.md` | 观点型内容、趋势判断、强标题页面 | 冲击力网格编辑风格 |
+| `french-editorial-commerce.md` | 品牌、消费、生活方式、审美型商业内容 | 法式编辑商业风格 |
+
+## 新增风格规范
+
+新增风格时，在 `styles/` 下创建一个稳定命名的 Markdown 文件，例如：
+
+```text
+styles/minimal-founder-deck.md
+```
+
+每个风格至少包含：
+
+- 风格定位和适用场景
+- 颜色系统，最好包含 hex 色值
+- 字体气质与标题/正文层级
+- 页面网格、留白、页眉页脚规则
+- 卡片、边框、分割线、装饰元素规则
+- `## Style Lock`
+- Image2 negative constraints
 
 ## 生成物约定
 
@@ -121,16 +173,24 @@ git pull
 
 PPTX 是交付容器，不是可编辑排版源文件。真正的视觉结果以逐页图片为准。
 
+## 命名约定
+
+- 风格文件使用 kebab-case，例如 `terminal-tech-magazine.md`。
+- 生成图片使用两位数序号，例如 `slide-01.png`。
+- 中间文档使用稳定文件名，例如 `outline.md`、`prompts.md`、`revision-log.md`。
+- 同一个项目的最终交付建议放入独立目录，避免不同 deck 的图片混在一起。
+
 ## 维护建议
 
 - 修改工作流时更新 `SKILL.md` 和 `references/`。
 - 新增视觉风格时只添加 `styles/*.md`，不要为了改风格重写 `SKILL.md`。
 - 每个风格都要写清楚自己的 `Style Lock`。
 - 避免在风格文件里写过多一次性项目内容，保持它可复用。
+- 如果生成流程、包装方式或修订规则变化，同步更新 `references/` 中对应文档。
 
-## License
+## 授权与使用
 
-Personal skill repository. Add a license if you plan to distribute or accept external contributions.
+当前仓库按个人 Skill 仓库维护。若后续计划公开分发、接受外部贡献或作为模板复用，建议再补充正式开源协议，例如 MIT License。
 
 </details>
 
@@ -140,6 +200,22 @@ Personal skill repository. Add a license if you plan to distribute or accept ext
 A Codex Skill for style-driven visual presentation creation.
 
 This skill treats visual style as a reusable asset: extract or select a visual style first, then use documents, articles, outlines, or topics to create image-based slide prompts. When needed, it assembles the generated slide images into an image-only PPTX deck.
+
+## Repository Summary
+
+`visual-style-ppt` connects content planning, visual style extraction, Image2 prompt writing, and image-first PPT packaging into a reusable workflow. It does not aim to create fully editable PowerPoint layouts. Instead, it treats each slide as a polished visual image and uses PPTX as the final delivery container.
+
+Suggested GitHub About description:
+
+```text
+Style-driven Codex Skill for creating image-first PPT decks from documents, articles, and visual references.
+```
+
+Suggested topics:
+
+```text
+codex-skill, ppt, presentation, image2, visual-style, prompt-engineering, slide-deck, markdown-to-ppt
+```
 
 ## What It Is For
 
@@ -194,6 +270,13 @@ cd ~/.codex/skills/visual-style-ppt
 git pull
 ```
 
+## Requirements
+
+- Codex Skills should be installed and available.
+- Image generation requires Image2 or an equivalent image generation capability in the current environment.
+- PPTX assembly requires an environment capable of creating PPTX files; this skill defaults to image-only PPTX.
+- If the input is a PDF, Word document, Markdown file, or webpage, make sure Codex can access the file or link.
+
 ## Example Prompts
 
 ```text
@@ -216,6 +299,13 @@ List the available PPT styles.
 Use the saved terminal-tech-magazine style. Give me the outline and prompts first, then wait for confirmation before generating images.
 ```
 
+## When Not To Use It
+
+- You need a highly editable PPT source file where every text box, chart, and shape must remain separately editable.
+- You need strict logo reproduction and expect the image model to redraw the same logo consistently on every page.
+- You need dense tables, long paragraphs, or report-style body copy packed into a single slide.
+- You need automatic dates, export times, or timestamps when the source does not explicitly require them.
+
 ## Standard Workflow
 
 1. Classify the task: style extraction, style application, document-to-PPT, image-only PPT revision, or style library management.
@@ -235,9 +325,29 @@ Every style file should include a `## Style Lock` section that controls the deck
 
 Built-in styles:
 
-- `terminal-tech-magazine.md`: Terminal tech magazine style for AI, developer tools, technical products, and dark visual reports.
-- `impact-grid-editorial.md`: High-impact editorial grid style for opinion pieces, trend analysis, and strong title pages.
-- `french-editorial-commerce.md`: French editorial commerce style for brand, consumer, lifestyle, and aesthetic business content.
+| Style file | Best for | Visual mood |
+| --- | --- | --- |
+| `terminal-tech-magazine.md` | AI, developer tools, technical products, dark visual reports | Terminal tech magazine |
+| `impact-grid-editorial.md` | Opinion pieces, trend analysis, strong title pages | High-impact editorial grid |
+| `french-editorial-commerce.md` | Brand, consumer, lifestyle, aesthetic business content | French editorial commerce |
+
+## Adding A New Style
+
+Create a stable Markdown file under `styles/`, for example:
+
+```text
+styles/minimal-founder-deck.md
+```
+
+Each style should include:
+
+- Style positioning and suitable use cases
+- Color system, preferably with hex values
+- Font mood and title/body hierarchy
+- Page grid, spacing, header, and footer rules
+- Card, border, divider, and decorative element rules
+- `## Style Lock`
+- Image2 negative constraints
 
 ## Output Convention
 
@@ -255,15 +365,23 @@ Recommended output files include:
 
 The PPTX is a delivery container, not the editable layout source. The final visual result is defined by the per-slide images.
 
+## Naming Conventions
+
+- Use kebab-case for style files, such as `terminal-tech-magazine.md`.
+- Use two-digit numbering for generated images, such as `slide-01.png`.
+- Use stable names for intermediate documents, such as `outline.md`, `prompts.md`, and `revision-log.md`.
+- Keep each final project in its own output directory to avoid mixing images from different decks.
+
 ## Maintenance
 
 - Update `SKILL.md` and `references/` when changing the workflow.
 - Add new visual styles as `styles/*.md`; do not rewrite `SKILL.md` just to change a style.
 - Make sure every style includes a clear `Style Lock`.
 - Keep style files reusable and avoid embedding too much one-off project content.
+- If the generation flow, packaging rules, or revision workflow changes, update the matching document in `references/`.
 
-## License
+## License And Usage
 
-Personal skill repository. Add a license if you plan to distribute or accept external contributions.
+This repository is currently maintained as a personal skill repository. If you plan to distribute it publicly, accept external contributions, or use it as a reusable template, consider adding a formal open source license such as the MIT License.
 
 </details>
