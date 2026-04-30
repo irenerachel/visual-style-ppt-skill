@@ -1,8 +1,12 @@
 # 输出包规范
 
+## 最高优先级硬规则：只允许 Image 2 出图
+
+所有图片页、缩略图板、信息图、文章配图和 PPT 页面图片必须由 Image 2 模型生成。严禁用 HTML/CSS、浏览器截图、SVG/HTML mockup、canvas、PIL 或本地脚本输出图片；Image 2 不可用时不得用 HTML 兜底，必须停止并说明需要 Image 2。
+
 ## 输出路线
 
-这个 Skill 默认用 Image2 生成完整图片页，也可以把图片页装进 PPTX。PPTX 只是图片容器，不承担可编辑排版。
+这个 Skill 只能用 Image 2 生成完整图片页，也可以把图片页装进 PPTX。PPTX 只是图片容器，不承担可编辑排版。
 
 ### A. 图片序列
 

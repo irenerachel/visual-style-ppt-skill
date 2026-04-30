@@ -1,6 +1,6 @@
 interface:
   display_name: "视觉风格 PPT"
-  short_description: "用 Image2 生成风格图片页并组装图片版 PPT"
-  default_prompt: "Use $visual-style-ppt to turn my document into Image2 slide images and an image-only PPT."
+  short_description: "只用 Image 2 生成风格图片页并组装图片版 PPT"
+  default_prompt: "Use $visual-style-ppt to turn my document into Image 2 slide images and an image-only PPT. Do not use HTML for image output."
 policy:
   allow_implicit_invocation: true

@@ -2,6 +2,10 @@
 
 Style-driven Codex Skill for turning documents, articles, and visual references into image-first presentation decks.
 
+## Highest Priority Rule
+
+This skill must use the Image 2 model for every generated slide image, thumbnail board, visual page, infographic, article illustration, and PPT page image. HTML output is forbidden: do not use HTML/CSS, browser screenshots, SVG/HTML mockups, canvas renders, PIL, or local scripts as final or intermediate image outputs. If Image 2 is unavailable, stop and state that Image 2 access is required.
+
 <details open>
 <summary>中文</summary>
 
@@ -36,7 +40,7 @@ codex-skill, ppt, presentation, image2, visual-style, prompt-engineering, slide-
 
 ## 核心原则
 
-- **Image2-first**：默认生成完整的幻灯片图片，而不是可编辑 PPT 元素。
+- **Image 2 only**：所有幻灯片图片、缩略图板、信息图和配图都必须由 Image 2 模型生成，严禁 HTML 出图或任何等价替代路线。
 - **一页一图**：每一页最终幻灯片都应保存为单独图片，例如 `slide-01.png`、`slide-02.png`。
 - **风格隔离**：一个 deck 只使用一个选定风格和一个 `Style Lock`，避免混入历史任务或无关参考图的视觉 DNA。
 - **低信息密度**：默认内页保持克制，一页一个主标题、一个简短 takeaway，最多 2-3 个信息点。
@@ -81,7 +85,7 @@ git pull
 ## 使用前提
 
 - 已安装并可使用 Codex Skills。
-- 需要生成图片时，当前环境应具备可调用的 Image2 或等价图像生成能力。
+- 需要生成图片时，当前环境必须具备可调用的 Image 2 模型；没有 Image 2 时不得用 HTML 或其它图像生成/本地渲染能力替代。
 - 需要组装 PPTX 时，环境应具备 PPTX 创建能力；本 Skill 默认生成 image-only PPTX。
 - 如果输入是 PDF、Word、Markdown 或网页内容，先确保 Codex 能读取对应文件或链接。
 
@@ -228,7 +232,7 @@ codex-skill, ppt, presentation, image2, visual-style, prompt-engineering, slide-
 
 ## Core Principles
 
-- **Image2-first**: Generate complete slide images by default, instead of editable PPT elements.
+- **Image 2 only**: Every slide image, thumbnail board, infographic, and illustration must be generated with the Image 2 model; HTML image output and equivalent substitute routes are forbidden.
 - **One image per slide**: Each final slide should be saved as an individual image, such as `slide-01.png` or `slide-02.png`.
 - **Style isolation**: Each deck uses exactly one selected style and one `Style Lock`, avoiding visual DNA from past tasks or unrelated references.
 - **Low text density**: Inner slides stay calm by default: one title, one short takeaway, and at most 2-3 information points.
@@ -273,7 +277,7 @@ git pull
 ## Requirements
 
 - Codex Skills should be installed and available.
-- Image generation requires Image2 or an equivalent image generation capability in the current environment.
+- Image generation requires the Image 2 model in the current environment; HTML and other image-generation or local-rendering substitutes are not allowed.
 - PPTX assembly requires an environment capable of creating PPTX files; this skill defaults to image-only PPTX.
 - If the input is a PDF, Word document, Markdown file, or webpage, make sure Codex can access the file or link.
 
