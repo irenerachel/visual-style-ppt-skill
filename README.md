@@ -54,6 +54,8 @@ codex-skill, ppt, presentation, image2, visual-style, prompt-engineering, slide-
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
+├── commands/
+│   └── visual-style-ppt.md
 ├── references/
 │   ├── output-package.md
 │   ├── page-types.md
@@ -80,6 +82,19 @@ git clone https://github.com/irenerachel/visual-style-ppt-skill.git visual-style
 ```bash
 cd ~/.codex/skills/visual-style-ppt
 git pull
+```
+
+如果你在 Claude Code 里想用 slash command，可以把仓库里的命令 shim 放到 Claude commands 目录：
+
+```bash
+mkdir -p ~/.claude/commands
+cp ~/.codex/skills/visual-style-ppt/commands/visual-style-ppt.md ~/.claude/commands/visual-style-ppt.md
+```
+
+然后用：
+
+```text
+/visual-style-ppt 把这个 Markdown 做成图片版 PPT
 ```
 
 ## 使用前提
@@ -246,6 +261,8 @@ codex-skill, ppt, presentation, image2, visual-style, prompt-engineering, slide-
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
+├── commands/
+│   └── visual-style-ppt.md
 ├── references/
 │   ├── output-package.md
 │   ├── page-types.md
@@ -272,6 +289,19 @@ If you already have a local copy, update it with:
 ```bash
 cd ~/.codex/skills/visual-style-ppt
 git pull
+```
+
+If you want a Claude Code slash command, copy the command shim into your Claude commands directory:
+
+```bash
+mkdir -p ~/.claude/commands
+cp ~/.codex/skills/visual-style-ppt/commands/visual-style-ppt.md ~/.claude/commands/visual-style-ppt.md
+```
+
+Then invoke:
+
+```text
+/visual-style-ppt Turn this Markdown into an image-based PPT.
 ```
 
 ## Requirements
