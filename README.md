@@ -4,7 +4,7 @@ Style-driven Codex Skill for turning documents, articles, and visual references 
 
 ## Highest Priority Rule
 
-This skill must use the Image 2 model for every generated slide image, thumbnail board, visual page, infographic, article illustration, and PPT page image. HTML output is forbidden: do not use HTML/CSS, browser screenshots, SVG/HTML mockups, canvas renders, PIL, or local scripts as final or intermediate image outputs. If Image 2 is unavailable, stop and state that Image 2 access is required.
+This skill must use the Image 2.5 model for every generated slide image, thumbnail board, visual page, infographic, article illustration, and PPT page image. HTML output is forbidden: do not use HTML/CSS, browser screenshots, SVG/HTML mockups, canvas renders, PIL, or local scripts as final or intermediate image outputs. If Image 2.5 is unavailable, stop and state that Image 2.5 access is required.
 
 <details open>
 <summary>中文</summary>
@@ -15,7 +15,7 @@ This skill must use the Image 2 model for every generated slide image, thumbnail
 
 ## 仓库简介
 
-`visual-style-ppt` 适合把内容策划、视觉风格提炼、Image2 生图提示词和图片版 PPT 打包流程串成一套稳定 SOP。它不追求可编辑 PPT 排版，而是把每页幻灯片视为一张高完成度视觉图片，再用 PPTX 作为最终交付容器。
+`visual-style-ppt` 适合把内容策划、视觉风格提炼、Image2.5 生图提示词和图片版 PPT 打包流程串成一套稳定 SOP。它不追求可编辑 PPT 排版，而是把每页幻灯片视为一张高完成度视觉图片，再用 PPTX 作为最终交付容器。
 
 推荐 GitHub About 简介：
 
@@ -26,7 +26,7 @@ Style-driven Codex Skill for creating image-first PPT decks from documents, arti
 推荐 Topics：
 
 ```text
-codex-skill, ppt, presentation, image2, visual-style, prompt-engineering, slide-deck, markdown-to-ppt
+codex-skill, ppt, presentation, image2.5, visual-style, prompt-engineering, slide-deck, markdown-to-ppt
 ```
 
 ## 适合做什么
@@ -40,7 +40,7 @@ codex-skill, ppt, presentation, image2, visual-style, prompt-engineering, slide-
 
 ## 核心原则
 
-- **Image 2 only**：所有幻灯片图片、缩略图板、信息图和配图都必须由 Image 2 模型生成，严禁 HTML 出图或任何等价替代路线。
+- **Image 2.5 only**：所有幻灯片图片、缩略图板、信息图和配图都必须由 Image 2.5 模型生成，严禁 HTML 出图或任何等价替代路线。
 - **一页一图**：每一页最终幻灯片都应保存为单独图片，例如 `slide-01.png`、`slide-02.png`。
 - **风格隔离**：一个 deck 只使用一个选定风格和一个 `Style Lock`，避免混入历史任务或无关参考图的视觉 DNA。
 - **低信息密度**：默认内页保持克制，一页一个主标题、一个简短 takeaway，最多 2-3 个信息点。
@@ -85,7 +85,7 @@ git pull
 ## 使用前提
 
 - 已安装并可使用 Codex Skills。
-- 需要生成图片时，当前环境必须具备可调用的 Image 2 模型；没有 Image 2 时不得用 HTML 或其它图像生成/本地渲染能力替代。
+- 需要生成图片时，当前环境必须具备可调用的 Image 2.5 模型；没有 Image 2.5 时不得用 HTML 或其它图像生成/本地渲染能力替代。
 - 需要组装 PPTX 时，环境应具备 PPTX 创建能力；本 Skill 默认生成 image-only PPTX。
 - 如果输入是 PDF、Word、Markdown 或网页内容，先确保 Codex 能读取对应文件或链接。
 
@@ -133,7 +133,7 @@ git pull
 
 可复用风格放在 `styles/` 目录，每个风格是一个 Markdown 文件。
 
-每个风格文件都应该包含 `## Style Lock`，用于控制整套 deck 的字体气质、布局网格、色彩比例、边框系统、页眉页脚、文本密度、Logo 处理和 Image2 negative constraints。
+每个风格文件都应该包含 `## Style Lock`，用于控制整套 deck 的字体气质、布局网格、色彩比例、边框系统、页眉页脚、文本密度、Logo 处理和 Image2.5 negative constraints。
 
 当前内置风格：
 
@@ -159,7 +159,7 @@ styles/minimal-founder-deck.md
 - 页面网格、留白、页眉页脚规则
 - 卡片、边框、分割线、装饰元素规则
 - `## Style Lock`
-- Image2 negative constraints
+- Image2.5 negative constraints
 
 ## 生成物约定
 
@@ -207,7 +207,7 @@ This skill treats visual style as a reusable asset: extract or select a visual s
 
 ## Repository Summary
 
-`visual-style-ppt` connects content planning, visual style extraction, Image2 prompt writing, and image-first PPT packaging into a reusable workflow. It does not aim to create fully editable PowerPoint layouts. Instead, it treats each slide as a polished visual image and uses PPTX as the final delivery container.
+`visual-style-ppt` connects content planning, visual style extraction, Image2.5 prompt writing, and image-first PPT packaging into a reusable workflow. It does not aim to create fully editable PowerPoint layouts. Instead, it treats each slide as a polished visual image and uses PPTX as the final delivery container.
 
 Suggested GitHub About description:
 
@@ -218,7 +218,7 @@ Style-driven Codex Skill for creating image-first PPT decks from documents, arti
 Suggested topics:
 
 ```text
-codex-skill, ppt, presentation, image2, visual-style, prompt-engineering, slide-deck, markdown-to-ppt
+codex-skill, ppt, presentation, image2.5, visual-style, prompt-engineering, slide-deck, markdown-to-ppt
 ```
 
 ## What It Is For
@@ -232,7 +232,7 @@ codex-skill, ppt, presentation, image2, visual-style, prompt-engineering, slide-
 
 ## Core Principles
 
-- **Image 2 only**: Every slide image, thumbnail board, infographic, and illustration must be generated with the Image 2 model; HTML image output and equivalent substitute routes are forbidden.
+- **Image 2.5 only**: Every slide image, thumbnail board, infographic, and illustration must be generated with the Image 2.5 model; HTML image output and equivalent substitute routes are forbidden.
 - **One image per slide**: Each final slide should be saved as an individual image, such as `slide-01.png` or `slide-02.png`.
 - **Style isolation**: Each deck uses exactly one selected style and one `Style Lock`, avoiding visual DNA from past tasks or unrelated references.
 - **Low text density**: Inner slides stay calm by default: one title, one short takeaway, and at most 2-3 information points.
@@ -277,7 +277,7 @@ git pull
 ## Requirements
 
 - Codex Skills should be installed and available.
-- Image generation requires the Image 2 model in the current environment; HTML and other image-generation or local-rendering substitutes are not allowed.
+- Image generation requires the Image 2.5 model in the current environment; HTML and other image-generation or local-rendering substitutes are not allowed.
 - PPTX assembly requires an environment capable of creating PPTX files; this skill defaults to image-only PPTX.
 - If the input is a PDF, Word document, Markdown file, or webpage, make sure Codex can access the file or link.
 
@@ -325,7 +325,7 @@ Use the saved terminal-tech-magazine style. Give me the outline and prompts firs
 
 Reusable styles live in the `styles/` directory. Each style is a Markdown file.
 
-Every style file should include a `## Style Lock` section that controls the deck's font mood, layout grid, color ratios, border system, headers and footers, text density, logo handling, and Image2 negative constraints.
+Every style file should include a `## Style Lock` section that controls the deck's font mood, layout grid, color ratios, border system, headers and footers, text density, logo handling, and Image2.5 negative constraints.
 
 Built-in styles:
 
@@ -351,7 +351,7 @@ Each style should include:
 - Page grid, spacing, header, and footer rules
 - Card, border, divider, and decorative element rules
 - `## Style Lock`
-- Image2 negative constraints
+- Image2.5 negative constraints
 
 ## Output Convention
 

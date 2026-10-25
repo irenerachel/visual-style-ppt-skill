@@ -51,7 +51,7 @@ Cover vs inner slides: the cover may be dramatic, with oversized title over a da
 
 Text density limits: normal inner slides should be low-density. Use concise visible text; do not paste long source paragraphs. Tables and report extracts are allowed only when the page type needs them, and even then use compact labels plus placeholder marks rather than fake unreadable paragraphs.
 
-Image2 negative constraints: no black border around the outer canvas, no full-slide rectangular outline, no edge-to-edge black frame, no colorful SaaS dashboard style, no cartoon illustration, no neon cyberpunk look, no 3D blobs, no thick shadows, no rounded pastel cards, no generic startup pitch-deck gradients, no decorative orb backgrounds, no busy icon systems, no dense unreadable paragraphs, no mixed historical visual styles, no unrelated climate/finance imagery unless used as a clear abstract metaphor.
+Image2.5 negative constraints: no black border around the outer canvas, no full-slide rectangular outline, no edge-to-edge black frame, no colorful SaaS dashboard style, no cartoon illustration, no neon cyberpunk look, no 3D blobs, no thick shadows, no rounded pastel cards, no generic startup pitch-deck gradients, no decorative orb backgrounds, no busy icon systems, no dense unreadable paragraphs, no mixed historical visual styles, no unrelated climate/finance imagery unless used as a clear abstract metaphor.
 
 ## Page Type Preferences
 
@@ -67,4 +67,4 @@ Image2 negative constraints: no black border around the outer canvas, no full-sl
 
 ## Reuse Prompt Prefix
 
-Apply the `impact-grid-editorial` Style Lock. Create an Image 2-only full-slide image with a high-end consulting editorial report style: strict black-line grid, warm-white institutional background, deep teal accents, documentary low-saturation photography, oversized condensed typography, hard rectangular modules, tiny report metadata, and restrained information density. Chinese-first visible text. Keep every slide consistent with the same grid, line weight, palette, footer behavior, and rectangular container system. Do not add any black border or full-page outline on the outer canvas edge.
+Apply the `impact-grid-editorial` Style Lock. Create an Image 2.5-only full-slide image with a high-end consulting editorial report style: strict black-line grid, warm-white institutional background, deep teal accents, documentary low-saturation photography, oversized condensed typography, hard rectangular modules, tiny report metadata, and restrained information density. Chinese-first visible text. Keep every slide consistent with the same grid, line weight, palette, footer behavior, and rectangular container system. Do not add any black border or full-page outline on the outer canvas edge.
